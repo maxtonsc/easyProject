@@ -48,15 +48,24 @@ const styles = StyleSheet.create({
   },
 });
 
-const ThirdScreen = (props) => {
-  const { navigate } = props.navigation;
+class ThirdScreen extends Component {
+  constructor(props){
+    super(props);
+    this.navigate= props.navigation.navigate;
+    this.state = {
+      search: 'Search',
+    }
+  }
+  render()
+  {
   return (
       <Container>
         <Header searchBar rounded>
             <Item>
                 <Icon name="ios-search" />
-                {/* <TextInput style={styles.searchButt} value={this.state.search}/> */}
-                <TextInput style={styles.searchButt} />
+                <TextInput style={styles.searchButt} placeholder={"Search"}
+                onChangeText={search => this.setState({search})}
+              />
             </Item>
             <Button transparent>
                 <Text>Search</Text>
@@ -73,7 +82,7 @@ const ThirdScreen = (props) => {
       </Container>
   );
 }
-
+}
 
 ThirdScreen.navigationOptions = {
   title: 'Third Screen',
