@@ -25,7 +25,7 @@ import {
 } from 'native-base';
 
 
-import { mps } from '../config/dataEasy';
+import { mps } from '../config/mpdatafinal';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -74,7 +74,7 @@ class ThirdScreen extends Component {
         <Content>
           {mps.map((mp) => (
 
-            <ListItem key={mp.key} onPress ={() => navigate('SecondScreen' , {email:mp.email, name:mp.name, party: mp.party, pictureLarge:mp.pictureLarge, key:mp.key})}>
+            <ListItem key={mp.key} onPress ={() => navigate('SecondScreen' , {email:mp.email, name:mp.name, party: mp.party, image:mp.image, key:mp.key})}>
                 <Text> {mp.name} </Text>
             </ListItem>
           ))}

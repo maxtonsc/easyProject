@@ -42,19 +42,19 @@ const styles = StyleSheet.create({
 });
 
 const FourthScreen = (props) => {
-  const { email, key, name, pictureLarge} = props.navigation.state.params;
+  const { email, key, name, image, twitter, fb} = props.navigation.state.params;
   return (
     <Container>
       <Content>
       <Image
-        source={imgArray[key]}
+        source={imgArray[0]}
       />
       <View style={styles.containerView}>
       <View style={styles.SocialBox}>
         <Text style={styles.social}>Contact</Text>
-        <Text>FB</Text>
+        <Text>FB: {fb}</Text>
         <Text>Messenger</Text>
-        <Text>Twitter</Text>
+        <Text>Twitter: {twitter}</Text>
         <Text>Email: {email}</Text>
       </View>
       {/*  very temporary implementation, more for func than design!!!*/}

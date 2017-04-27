@@ -22,7 +22,7 @@ import {
   Title,
   Thumbnail,
 } from 'native-base';
-import { mps } from '../config/dataEasy';
+import { mps } from '../config/mpdatafinal';
 import { imgArray }from '../img/imageStore';
 const styles = StyleSheet.create({
 
@@ -65,11 +65,13 @@ class FifthScreen extends Component {
                 this.navigate('FourthScreen' , {
                   email:mp.email,
                   name:mp.name,
-                  pictureLarge:mp.pictureLarge,
-                  key:mp.key
+                  image:mp.image,
+                  key:mp.key,
+                  twitter: mp.twitter,
+                  fb: mp.fb,
                 })}>
                 <Left>
-                  <Thumbnail source={imgArray[mp.key]} />
+                  <Thumbnail source={imgArray[0]} />
                 </Left>
                 <Body>
                   <Text> {mp.name} </Text>
