@@ -6,7 +6,7 @@ import {Image,
 } from 'react-native';
 import { Container, Content, Icon } from 'native-base';
 
-import { imgArray }from '../img/imageStore';
+import { imgArray }from '../img/imgArray-Full';
 
 const styles = StyleSheet.create({
 
@@ -42,12 +42,12 @@ const styles = StyleSheet.create({
 });
 
 const FourthScreen = (props) => {
-  const { email, key, name, image, twitter, fb} = props.navigation.state.params;
+  const { email, key, name, image,imgkey, twitter, fb} = props.navigation.state.params;
   return (
     <Container>
       <Content>
       <Image
-        source={imgArray[0]}
+        source={imgArray[imgkey]}
       />
       <View style={styles.containerView}>
       <View style={styles.SocialBox}>

@@ -23,7 +23,7 @@ import {
   Thumbnail,
 } from 'native-base';
 import { mps } from '../config/mpdatafinal';
-import { imgArray }from '../img/imageStore';
+import { imgArray }from '../img/imgArray-Full';
 const styles = StyleSheet.create({
 
   searchButt:{
@@ -37,19 +37,38 @@ class FifthScreen extends Component {
   constructor(props){
     super(props);
     this.navigate= props.navigation.navigate;
+    this.mps= props.mps;
+
     this.state = {
-      search: 'Search',
-    }
+      search: ''
+    };
+  }
+  updateSearch(event){
+    this.setState({search: event.target.value})
   }
   render()
   {
+    let filteredMPS= this.props.mps.filter(
+      (mp) => {
+        if(this.state.search=="Amy, Adams"){
+          return mp;
+        }
+
+
+        // return mp.name.indexOf(
+        //   this.state.search) !==1;
+
+      }
+    );
     return(
       <Container>
         <Header searchBar rounded>
           <Item>
             <Icon name="ios-search" />
-            <TextInput style={styles.searchButt} placeholder={"Search"}
-            onChangeText={search => this.setState({search})}
+            <TextInput style={styles.searchButt}
+            // onChangeText={search => this.setState({search})}
+            value={this.state.search}
+            onChange={this.updateSearch.bind(this)}
           />
             {/* <TextInput style={styles.searchButt} */}
               <Icon name="ios-people" />
@@ -59,19 +78,20 @@ class FifthScreen extends Component {
             </Button>
           </Header>
           <Content>
-            {mps.map((mp) => (
+            {filteredMPS.map((mp) => (
 
               <ListItem avatar key={mp.key} onPress ={() =>
                 this.navigate('FourthScreen' , {
                   email:mp.email,
                   name:mp.name,
                   image:mp.image,
+                  imgkey:mp.imgkey,
                   key:mp.key,
                   twitter: mp.twitter,
                   fb: mp.fb,
                 })}>
                 <Left>
-                  <Thumbnail source={imgArray[0]} />
+                  <Thumbnail source={imgArray[mp.imgkey]} />
                 </Left>
                 <Body>
                   <Text> {mp.name} </Text>
