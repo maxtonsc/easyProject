@@ -19,6 +19,7 @@ import SecondScreen from './src/SecondScreen'
 import ThirdScreen from './src/ThirdScreen'
 import FourthScreen from './src/FourthScreen'
 import FifthScreen from './src/FifthScreen'
+import MapScreen from './src/MapScreen'
 import {
   StackNavigator
 } from 'react-navigation';
@@ -41,6 +42,7 @@ const SimpleApp = StackNavigator({
   ThirdScreen: { screen: ThirdScreen},
   FourthScreen: { screen: FourthScreen},
   FifthScreen: { screen: FifthScreen},
+  MapScreen: { screen: MapScreen},
 });
 
 

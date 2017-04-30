@@ -37,7 +37,6 @@ class FifthScreen extends Component {
   constructor(props){
     super(props);
     this.navigate= props.navigation.navigate;
-    this.mps= props.mps;
 
     this.state = {
       search: ''
@@ -48,13 +47,17 @@ class FifthScreen extends Component {
   }
   render()
   {
-    let filteredMPS= this.props.mps.filter(
+    //Code from online that works
+    // let filteredMPS= this.props.mps.filter(
+
+    // My code
+    let filteredMPS = mps.filter(
       (mp) => {
-        if(this.state.search=="Amy, Adams"){
-          return mp;
-        }
-
-
+        return mp;
+        // if(this.state.search=="Amy, Adams"){
+        //   return mp;
+        // }
+        //Code from online that works. However
         // return mp.name.indexOf(
         //   this.state.search) !==1;
 
@@ -92,6 +95,8 @@ class FifthScreen extends Component {
                 })}>
                 <Left>
                   <Thumbnail source={imgArray[mp.imgkey]} />
+
+
                 </Left>
                 <Body>
                   <Text> {mp.name} </Text>

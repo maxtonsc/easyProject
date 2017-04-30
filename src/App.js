@@ -54,6 +54,10 @@ const App = (props) => {
       onPress={() => navigate('FifthScreen')}
       title="Go to FifthScreen"
     />
+    <Button
+      onPress={() => navigate('MapScreen')}
+      title="Go to MapScreen"
+    />
 
   </View>
 );

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {Image,
-  View,
+  Linking,
   StyleSheet,
-  Text
+  Text,
+  TouchableOpacity,
+  View
 } from 'react-native';
 import { Container, Content, Icon } from 'native-base';
 
@@ -43,6 +45,7 @@ const styles = StyleSheet.create({
 
 const FourthScreen = (props) => {
   const { email, key, name, image,imgkey, twitter, fb} = props.navigation.state.params;
+  const emailToken = 'mailto://' + email;
   return (
     <Container>
       <Content>
@@ -56,6 +59,9 @@ const FourthScreen = (props) => {
         <Text>Messenger</Text>
         <Text>Twitter: {twitter}</Text>
         <Text>Email: {email}</Text>
+        <TouchableOpacity onPress={() => Linking.openURL(emailToken)}>
+        <Text> Email: {emailToken} </Text>
+        </TouchableOpacity>
       </View>
       {/*  very temporary implementation, more for func than design!!!*/}
       <View style={styles.Info}>
@@ -64,6 +70,7 @@ const FourthScreen = (props) => {
         <Text>Messenger</Text>
         <Text>Twitter</Text>
         <Text>Email: {email}</Text>
+
       </View>
     </View>
     <View>
