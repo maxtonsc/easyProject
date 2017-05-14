@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
   welcome: {
     fontSize: 20,
-    textAlign: 'center',
+    fontWeight: 'bold',
     margin: 10,
   },
   instructions: {
@@ -35,10 +35,10 @@ const styles = StyleSheet.create({
 const SecondScreen = (props) => {
 
 
-  const { email, key, name, party, pictureLarge} = props.navigation.state.params;
+  const { BillHistory, BillLeader, BillLink, BillName, BillStatus, key} = props.navigation.state.params;
 
   const onButtonPress = () => {
-  Alert.alert(email);
+  Alert.alert(BillLink);
 };
   return (
     <Container>
@@ -46,11 +46,16 @@ const SecondScreen = (props) => {
         {/*  very temporary implementation, more for func than design!!!*/}
       <View style={styles.containerView}>
       <View style={styles.SocialBox}>
-        <Text style={styles.social}>Bill</Text>
-        <Text>{name}</Text>
-        <Text>Leader: {party}</Text>
-        <Text>Info:--</Text>
-        <Text>Find more info on</Text>
+        <Text style={styles.welcome}>Bill</Text>
+        <Text>{BillName}</Text>
+        <Text style={styles.welcome}>Current Bill status: </Text>
+        <Text>{BillStatus}</Text>
+        <Text style={styles.welcome}>MP in charge of the Bill:  </Text>
+        <Text>{BillLeader}</Text>
+        <Text style={styles.welcome}>Info:</Text>
+        <Text>{BillHistory}</Text>
+        <Text style={styles.welcome}>Find more info on:</Text>
+        <Text>{BillLink}</Text>
         {/* <Button
           onPress={() => Alert.alert((email)}
           title="Email alert"
@@ -61,8 +66,8 @@ const SecondScreen = (props) => {
   accessibilityLabel="See an informative alert"
 />
         <Text style={{color: 'blue'}}
-      onPress={() => Linking.openURL({email})}>
-  {email}
+      onPress={() => Linking.openURL({BillLink})}>
+  {BillLink}
   </Text>
       </View>
     </View>

@@ -24,8 +24,8 @@ import {
   Thumbnail,
 } from 'native-base';
 
-
-import { mps } from '../config/mpdatafinal';
+import { bills } from '../config/billsdata';
+// import { mps } from '../config/mpdatafinal';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -72,10 +72,13 @@ class ThirdScreen extends Component {
             </Button>
         </Header>
         <Content>
-          {mps.map((mp) => (
+          {bills.map((bill) => (
 
-            <ListItem key={mp.key} onPress ={() => this.navigate('SecondScreen' , {email:mp.email, name:mp.name, party: mp.party, image:mp.image, key:mp.key})}>
-                <Text> {mp.name} </Text>
+            <ListItem key={bill.key} onPress ={() =>
+              this.navigate('SecondScreen' , {BillName: bill.BillName,
+                 BillStatus:bill.BillStatus, BillLeader:bill.BillLeader, BillLink:bill.BillLink,
+                 BillHistory: bill.BillHistory, key:bill.key})}>
+                <Text> {bill.BillName} </Text>
             </ListItem>
           ))}
         </Content>
